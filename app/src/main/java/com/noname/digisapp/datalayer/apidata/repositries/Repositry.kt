@@ -8,8 +8,8 @@ import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class DigiDataRepositry @Inject constructor(private val server: ServerGateway): Repositry {
+
+class DigiDataRepositry  constructor(private val server: ServerGateway): Repositry {
     override fun retrieveReadingsData(): Single<RandomResponse> {
         return server.retrieveReadingData()
     }

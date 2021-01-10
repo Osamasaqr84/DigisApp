@@ -1,19 +1,22 @@
 package com.noname.digisapp.presentation.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.noname.digisapp.domain.interactors.GetReadingsData
-import com.noname.digisapp.domain.repositry.Repositry
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.noname.digisapp.datalayer.apidata.ApiClient
+import com.noname.digisapp.datalayer.apidata.ServerGateway
 
-@Singleton
-class ViewModelFactory @Inject constructor(private val repositry: Repositry) :
-    ViewModelProvider.Factory {
+class ViewModelFactory(private val baseContext: Context) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass == MainViewModel::class.java) {
-            return MainViewModel(GetReadingsData(repositry)) as T
+            return MainViewModel(getApiService(),baseContext) as T
         }
         throw IllegalArgumentException("Invalid view model class type")
     }
+
+    private fun getApiService(): ServerGateway? {
+        return ApiClient.client?.create(ServerGateway::class.java)
+    }
+
 }

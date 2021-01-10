@@ -1,19 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingTop="50dp"
     tools:context=".presentation.view.MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:background="#E51304"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+
+    <TextView
+        android:id="@+id/rsrp_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="RSRP"
+        android:textColor="#8A8686"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guid1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/rsrp_progress"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        tools:background="#ff0000"
+        app:layout_constraintEnd_toStartOf="@+id/guid1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rsrp_title" />
+
+    <TextView
+        android:id="@+id/rsrp_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="-100"
+        android:textColor="#8A8686"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rsrp_progress"
+        app:layout_constraintEnd_toStartOf="@+id/guid1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rsrp_progress" />
+
+
+    <TextView
+        android:id="@+id/rsrq_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="RSRQ"
+        android:textColor="#8A8686"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toEndOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/rsrq_progress"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        tools:background="#00ff00"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toEndOf="@+id/guid1"
+        app:layout_constraintTop_toBottomOf="@+id/rsrp_title" />
+
+    <TextView
+        android:id="@+id/rsrq_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="-100"
+        android:textColor="#8A8686"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rsrq_progress"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toStartOf="@+id/rsrq_progress"
+        app:layout_constraintTop_toTopOf="@+id/rsrq_progress" />
+
+
+    <TextView
+        android:id="@+id/snr_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SNR"
+        android:textColor="#8A8686"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guid2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/snr_progress"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        tools:background="#0000ff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guid2"
+        app:layout_constraintTop_toBottomOf="@+id/snr_title" />
+
+    <TextView
+        android:id="@+id/snr_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="-100"
+        android:textColor="#8A8686"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/snr_progress"
+        app:layout_constraintEnd_toEndOf="@+id/snr_progress"
+        app:layout_constraintStart_toStartOf="@+id/snr_progress"
+        app:layout_constraintTop_toTopOf="@+id/rsrq_progress" />
+
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        app:layout_constraintTop_toBottomOf="@+id/snr_value"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layerType="software"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/rsrp_graph" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        app:layout_constraintTop_toBottomOf="@+id/rsrp_graph"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layerType="software"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/rsrq_graph" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        app:layout_constraintTop_toBottomOf="@+id/rsrq_graph"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layerType="software"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/sinr_graph" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
