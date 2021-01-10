@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.noname.digisapp.datalayer.apidata.ServerGateway
-import com.noname.digisapp.domain.interactors.ReadingColor
-import com.noname.digisapp.domain.interactors.GsonParse
 import com.noname.digisapp.models.RandomResponse
+import com.noname.digisapp.presentation.model.GsonParse
+import com.noname.digisapp.presentation.model.ReadingColor
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

@@ -18,7 +18,6 @@ import com.noname.digisapp.models.RandomResponse
 import com.noname.digisapp.presentation.viewmodel.MainViewModel
 import com.noname.digisapp.presentation.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 import kotlin.time.ExperimentalTime
 
 
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     private val lineData3 = LineData(valuesSet3)
 
 
-    @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
